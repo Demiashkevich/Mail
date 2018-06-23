@@ -12,7 +12,9 @@
     <modules>
         <module>rest-endpoint</module>
         <module>rest-api</module>
+        <module>service</module>
         <module>dao</module>
+        <module>rest-runtime</module>
     </modules>
 
     <properties>
@@ -20,6 +22,7 @@
         <org.springframework.boot>1.5.12.RELEASE</org.springframework.boot>
         <org.springframework>5.0.5.RELEASE</org.springframework>
         <org.apache.commons>3.0</org.apache.commons>
+        <org.mapstruct>1.1.0.Final</org.mapstruct>
         <com.h2database>1.4.197</com.h2database>
     </properties>
 
@@ -28,6 +31,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.12.RELEASE</version>
     </parent>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -36,8 +40,23 @@
                 <version>${org.apache.commons}</version>
             </dependency>
             <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${org.mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>rest-endpoint</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.dzemiashkevich.mail</groupId>
                 <artifactId>rest-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
