@@ -17,6 +17,7 @@
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
         <org.springframework>2.0.3.RELEASE</org.springframework>
+        <org.apache.commons>3.0</org.apache.commons>
     </properties>
 
     <dependencyManagement>
@@ -25,6 +26,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${org.springframework}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${org.apache.commons}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>rest-api</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
