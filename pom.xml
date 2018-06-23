@@ -12,21 +12,24 @@
     <modules>
         <module>rest-endpoint</module>
         <module>rest-api</module>
+        <module>dao</module>
     </modules>
 
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
-        <org.springframework>2.0.3.RELEASE</org.springframework>
+        <org.springframework.boot>1.5.12.RELEASE</org.springframework.boot>
+        <org.springframework>5.0.5.RELEASE</org.springframework>
         <org.apache.commons>3.0</org.apache.commons>
+        <com.h2database>1.4.197</com.h2database>
     </properties>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.12.RELEASE</version>
+    </parent>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${org.springframework}</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -35,6 +38,11 @@
             <dependency>
                 <groupId>com.dzemiashkevich.mail</groupId>
                 <artifactId>rest-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
