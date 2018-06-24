@@ -5,25 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <artifactId>mail</artifactId>
         <groupId>com.dzemiashkevich.mail</groupId>
-        <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>rest-endpoint</artifactId>
+    <artifactId>rest-api</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
             <groupId>com.dzemiashkevich.mail</groupId>
-            <artifactId>rest-api</artifactId>
+            <artifactId>swagger-configuration</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.dzemiashkevich.mail</groupId>
-            <artifactId>service</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
         </dependency>
     </dependencies>
 
