@@ -22,8 +22,8 @@ public class ApplicationAdminController implements ApplicationAdminApi {
         return ResponseEntity.ok(applicationService.updateApplicationByStatus(applicationId, status));
     }
 
-    @GetMapping(value = "/applications/{status}")
-    public ResponseEntity<Long> readAmountApplicationByStatus(@PathVariable StatusRestDto status) {
+    @GetMapping(value = "/applications", params = "status")
+    public ResponseEntity<Long> readAmountApplicationByStatus(@RequestParam StatusRestDto status) {
         return ResponseEntity.ok(applicationService.readAmountApplicationByStatus(status));
     }
 

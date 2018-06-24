@@ -29,6 +29,10 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dzemiashkevich.mail</groupId>
+            <artifactId>common-exception</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

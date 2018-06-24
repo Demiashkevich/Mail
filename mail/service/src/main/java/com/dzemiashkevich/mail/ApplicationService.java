@@ -12,6 +12,8 @@ import java.util.List;
 @Service
 public class ApplicationService {
 
+    private static final String APPLICATION = "Application";
+
     private ApplicationMapper applicationMapper = Mappers.getMapper(ApplicationMapper.class);
 
     @Autowired
@@ -27,7 +29,7 @@ public class ApplicationService {
                 .map(e -> {
                     ApplicationEntity updatedEntity = this.updateStatus(e, status);
                     return applicationRepository.save(updatedEntity);
-                }).orElseThrow(RuntimeException::new);
+                }).orElseThrow(() -> new ApplicationException(ApplicationStatus.ENTITY_NOT_FOUND, APPLICATION, applicationId));
         return applicationMapper.domainToDto(entity);
     }
 
@@ -39,9 +41,7 @@ public class ApplicationService {
 
     public Long readAmountApplicationByStatus(StatusRestDto status) {
         StatusEntity statusEntity = applicationMapper.dtoToDomain(status);
-        return applicationRepository.countApplicationByStatus(statusEntity)
-                .map(c -> c)
-                .orElseThrow(RuntimeException::new);
+        return applicationRepository.countApplicationByStatus(statusEntity).get();
     }
 
     public ApplicationRestDto createApplication(ApplicationRestDto applicationDto) {
@@ -53,7 +53,7 @@ public class ApplicationService {
     public StatusRestDto readApplicationStatus(Long applicationId) {
         StatusEntity statusEntity = applicationRepository.findById(applicationId)
                 .map(ApplicationEntity::getStatus)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(() -> new ApplicationException(ApplicationStatus.ENTITY_NOT_FOUND, APPLICATION, applicationId));
         return applicationMapper.domainToDto(statusEntity);
     }
 

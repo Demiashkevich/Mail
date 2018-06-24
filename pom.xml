@@ -11,6 +11,7 @@
 
     <modules>
         <module>swagger-configuration</module>
+        <module>common-exception</module>
         <module>mail</module>
     </modules>
 
@@ -75,6 +76,11 @@
             <dependency>
                 <groupId>com.dzemiashkevich.mail</groupId>
                 <artifactId>swagger-configuration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>common-exception</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
