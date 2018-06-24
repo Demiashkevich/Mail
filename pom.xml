@@ -15,6 +15,8 @@
         <module>service</module>
         <module>dao</module>
         <module>rest-runtime</module>
+        <module>swagger-configuration</module>
+        <module>mail</module>
     </modules>
 
     <properties>
@@ -24,6 +26,7 @@
         <org.apache.commons>3.0</org.apache.commons>
         <org.mapstruct>1.1.0.Final</org.mapstruct>
         <com.h2database>1.4.197</com.h2database>
+        <io.springfox>2.7.0</io.springfox>
     </properties>
 
     <parent>
@@ -62,6 +65,21 @@
             <dependency>
                 <groupId>com.dzemiashkevich.mail</groupId>
                 <artifactId>dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${io.springfox}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${io.springfox}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dzemiashkevich.mail</groupId>
+                <artifactId>swagger-configuration</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

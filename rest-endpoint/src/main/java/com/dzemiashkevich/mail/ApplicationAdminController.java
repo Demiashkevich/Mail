@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ApplicationAdminController {
+public class ApplicationAdminController implements ApplicationAdminApi {
 
     @Autowired
     private ApplicationService applicationService;
