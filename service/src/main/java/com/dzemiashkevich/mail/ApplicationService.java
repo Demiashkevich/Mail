@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ApplicationService {
@@ -24,7 +23,7 @@ public class ApplicationService {
     }
 
     public ApplicationRestDto updateApplicationByStatus(Long applicationId, StatusRestDto status) {
-        ApplicationEntity entity = Optional.of(applicationRepository.findOne(applicationId))
+        ApplicationEntity entity = applicationRepository.findById(applicationId)
                 .map(e -> {
                     ApplicationEntity updatedEntity = this.updateStatus(e, status);
                     return applicationRepository.save(updatedEntity);
@@ -43,6 +42,19 @@ public class ApplicationService {
         return applicationRepository.countApplicationByStatus(statusEntity)
                 .map(c -> c)
                 .orElseThrow(RuntimeException::new);
+    }
+
+    public ApplicationRestDto createApplication(ApplicationRestDto applicationDto) {
+        ApplicationEntity applicationEntity = applicationMapper.dtoToDomain(applicationDto);
+        applicationEntity = applicationRepository.save(applicationEntity);
+        return applicationMapper.domainToDto(applicationEntity);
+    }
+
+    public StatusRestDto readApplicationStatus(Long applicationId) {
+        StatusEntity statusEntity = applicationRepository.findById(applicationId)
+                .map(ApplicationEntity::getStatus)
+                .orElseThrow(RuntimeException::new);
+        return applicationMapper.domainToDto(statusEntity);
     }
 
 }
