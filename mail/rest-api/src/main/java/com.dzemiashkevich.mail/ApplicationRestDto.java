@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @ApiModel(value = "Application")
@@ -15,16 +17,19 @@ public class ApplicationRestDto {
     private Long applicationId;
 
     @ApiModelProperty(value = "Description of application", required = true)
+    @NotEmpty
     private String description;
 
     @ApiModelProperty(value = "Date of application create", required = true)
+    @NotNull
     private LocalDateTime createdAt;
 
     @ApiModelProperty(value = "Date of application expiration", required = true)
+    @NotNull
     private LocalDateTime expirationAt;
 
     @ApiModelProperty(value = "Status of application", required = true)
-    private StatusRestDto status;
+    private StatusRestDto status = StatusRestDto.OPEN;
 
     public Long getApplicationId() {
         return applicationId;

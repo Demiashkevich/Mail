@@ -23,6 +23,8 @@
         <org.mapstruct>1.1.0.Final</org.mapstruct>
         <com.h2database>1.4.197</com.h2database>
         <io.springfox>2.7.0</io.springfox>
+        <org.hibernate>5.4.1.Final</org.hibernate>
+        <javax.validation>2.0.1.Final</javax.validation>
     </properties>
 
     <parent>
@@ -82,6 +84,16 @@
                 <groupId>com.dzemiashkevich.mail</groupId>
                 <artifactId>common-exception</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${org.hibernate}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
